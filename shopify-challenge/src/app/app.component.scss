@@ -1,0 +1,18 @@
+// Global Styles
+* { 
+    font-family: sans-serif;
+}
+
+// Styles for header
+#header {
+    text-align: center;
+    background-color: #642ee9;
+    color: white;
+    padding: 50px 0;
+}
+
+// Create Grid
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
