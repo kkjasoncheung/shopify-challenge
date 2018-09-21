@@ -1,12 +1,16 @@
-<div id="header">
-  <h1>My Github Favorites</h1>
-</div>
 <!-- Create grid with 2 equal width (50%) columns -->
-<div class="grid-container">
-  <div class="grid-item">
-    <app-search></app-search>
+<div class="container-fluid" id="main-container">
+  <div class="row">
+    <div id="header" class="col">
+      <h1>My Github Favorites</h1>
+    </div>
   </div>
-  <div class="grid-item">
-    <app-favourites></app-favourites>
+  <div class="row" id="content-container">
+    <div class="col-lg-6" id="search-container">
+      <app-search></app-search>
+    </div>
+    <div class="col-lg-6" id="favourites-container">
+      <app-favourites></app-favourites>
+    </div>
   </div>
 </div>
