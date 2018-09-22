@@ -12,7 +12,24 @@
   <div>
     <div class="row">
       <div class="col-md-12">
-        <app-search-results></app-search-results>
+          <div id="results-container">
+              <table class="table table-borderless" id="results-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Language</th>
+                    <th>Latest tag</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let repo of repos">
+                  <td>{{repo.name}}</td>
+                  <td>{{repo.language}}</td>
+                  <td>{{repo.tag}}</td>
+                  <td>Add</td>
+                </tbody>
+              </table>
+            </div>
       </div>
     </div>
   </div>
