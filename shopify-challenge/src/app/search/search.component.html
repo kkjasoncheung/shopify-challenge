@@ -1,8 +1,6 @@
 <div class="container">
-  <form>
-    <div class="form-group" id="search-form">
-
-      <div class="row">
+  <form class="form-group" id="search-form">
+      <div class="row" id="search-form-row">
         <div class="col-md-9">
           <input type="text" class="form-control" id="search-field" placeholder="Search for repo">
         </div>
@@ -10,10 +8,10 @@
           <button type="submit" class="btn btn-primary" id="submit-btn">Search</button>
         </div>
       </div>
-
-    </div>
   </form>
   <div>
-    <app-search-results></app-search-results>
+    <div class="row">
+        <app-search-results></app-search-results>
+    </div>
   </div>
 </div>
