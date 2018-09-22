@@ -2,34 +2,36 @@
   <form class="form-group" id="search-form">
     <div class="row" id="search-form-row">
       <div class="col-md-9">
-        <input type="text" [(ngModel)]="keyword" required name="keyword" class="form-control" id="search-field" placeholder="Search for repo">
+        <input type="text" [formControl]="keyword" class="form-control" id="search-field" placeholder="Search for repo">
       </div>
       <div class="col-md-3">
-        <button type="submit" class="btn btn-primary" id="submit-btn" (click)="search()">Search</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn" [disabled]="keyword.invalid" (click)="search()">Search</button>
       </div>
     </div>
   </form>
   <div>
     <div class="row">
       <div class="col-md-12">
-          <div id="results-container">
-              <table class="table table-borderless" id="results-table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Language</th>
-                    <th>Latest tag</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let repo of repos">
-                  <td>{{repo.name}}</td>
-                  <td>{{repo.language}}</td>
-                  <td>{{repo.tag}}</td>
-                  <td>Add</td>
-                </tbody>
-              </table>
-            </div>
+        <div id="results-container">
+          <table class="table table-borderless" id="results-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Latest tag</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let repo of repos">
+              <td>{{repo.name}}</td>
+              <td>{{repo.language}}</td>
+              <td>{{repo.tag}}</td>
+              <td>
+                <button>Add</button>
+              </td>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

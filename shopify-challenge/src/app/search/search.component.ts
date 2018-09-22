@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../services/github.service';
 import { Repo } from '../services/Repo';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -9,8 +10,9 @@ import { Repo } from '../services/Repo';
 })
 export class SearchComponent implements OnInit {
 
-  public keyword: string;
+  
   public repos: Repo[] = [];
+  public keyword = new FormControl('', [Validators.required]);
 
   constructor(private githubService: GithubService) { }
 
@@ -19,8 +21,7 @@ export class SearchComponent implements OnInit {
 
   /** Method to call GitHub service to fetch repos with keyword as query */
   public search(): void {
-    console.log('Search repo with keyword', this.keyword);
-    this.githubService.getRepos(this.keyword).subscribe((result) => {
+    this.githubService.getRepos(this.keyword.value).subscribe((result) => {
       var newRepo: Repo;
 
       // Get repo info
