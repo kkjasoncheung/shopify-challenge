@@ -23,11 +23,13 @@
               </tr>
             </thead>
             <tbody *ngFor="let repo of repos">
-              <td>{{repo.name}}</td>
+              <td>
+                <a href="{{ repo.link }}">{{repo.name}}</a>
+              </td>
               <td>{{repo.language}}</td>
               <td>{{repo.tag}}</td>
               <td>
-                <button>Add</button>
+                <a href="#" class="add-btn">Add</a>
               </td>
             </tbody>
           </table>

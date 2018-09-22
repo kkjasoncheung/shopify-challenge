@@ -22,8 +22,8 @@ export class SearchComponent implements OnInit {
   /** Method to call GitHub service to fetch repos with keyword as query */
   public search(): void {
     this.githubService.getRepos(this.keyword.value).subscribe((result) => {
+      this.repos = [];
       var newRepo: Repo;
-
       // Get repo info
       for (let i = 0; i < 10; i++) {
         if (result.items[i] == undefined) {
