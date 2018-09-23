@@ -1,4 +1,4 @@
-# ShopifyChallenge
+# Shopify Challenge
 
 **Access the app live on Heroku! https://shopify-intern-challenge.herokuapp.com/**
 
@@ -13,7 +13,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Clone the repository. `git clone https://github.com/kkjasoncheung/shopify-challenge.git`
 2. Change directory to the root of the application: `cd ./shopify-challenge`.
 3. Install dependencies `npm i`
-4. Run `ng serve` and navigate to `http://localhost:4200/`. **Voila!**
+4. Run `ng serve` and navigate to `http://localhost:4200/`. 
+
+**Voila!**
 
 The app will automatically reload if you change any of the source files.
 
