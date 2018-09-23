@@ -1,3 +1,14 @@
+// Layout styles
+#container {
+    padding: 38px 50px 0px 50px;
+}
+
+// Button styles
 .remove-btn {
     text-decoration: underline;
+}
+
+// Table styles
+tr th {
+    min-width: 25%;
 }
