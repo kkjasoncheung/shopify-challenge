@@ -5,37 +5,38 @@
         <input type="text" [formControl]="keyword" class="form-control" id="search-field" placeholder="Search for repo">
       </div>
       <div class="col-md-3">
-        <button type="submit" class="btn btn-primary" id="submit-btn" [disabled]="keyword.invalid" (click)="search()">Search</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn" [disabled]="this.keyword.invalid" (click)="search()">Search</button>
       </div>
     </div>
   </form>
   <div>
     <div class="row">
       <div class="col-md-12">
-        <div>
-          <table class="table table-borderless" id="results-table">
-            <thead>
-              <tr>
-                <th style="width: 25%">Name</th>
-                <th style="width: 25%">Language</th>
-                <th style="width: 25%">Latest tag</th>
-                <th style="width: 25%">&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let repo of repos">
+        <table class="table table-borderless" id="results-table">
+          <thead>
+            <tr>
+              <th style="width: 25%">Name</th>
+              <th style="width: 25%">Language</th>
+              <th style="width: 25%">Latest tag</th>
+              <th style="width: 25%">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let repo of repos">
               <td>
                 <a href="{{ repo.link }}">{{repo.name}}</a>
               </td>
               <td>{{repo.language}}</td>
               <td>{{repo.tag}}</td>
               <td>
-                <a href="#" class="add-btn" 
-                [ngClass]="{'hide': favouritesService.getFavourites().indexOf(repo) > -1  }" 
+                <a href="#"
+                class="add-btn" 
+                [ngClass]="{ 'hide': favouritesService.getFavourites().indexOf(repo) > -1 }" 
                 (click)="addFavourite(repo)">Add</a>
               </td>
-            </tbody>
-          </table>
-        </div>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

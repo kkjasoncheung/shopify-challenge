@@ -14,9 +14,16 @@ export class SearchComponent implements OnInit {
   public repos: Repo[] = [];
   public keyword = new FormControl('', [Validators.required]);
 
-  constructor(private githubService: GithubService, private favouritesService: FavouritesService) { }
+  constructor(private githubService: GithubService, private favouritesService: FavouritesService) {
+  }
 
   ngOnInit() {
+    // Listen to key changes and reset list if input cleared
+    this.keyword.valueChanges.subscribe((userInput: string) => {
+      if (userInput.length === 0) {
+        this.repos = [];
+      }
+    });
   }
 
   /** Method to call GitHub service to fetch repos with keyword as query */
@@ -59,5 +66,4 @@ export class SearchComponent implements OnInit {
   public addFavourite(repo: Repo): void {
     this.favouritesService.add(repo);
   }
-
 }
