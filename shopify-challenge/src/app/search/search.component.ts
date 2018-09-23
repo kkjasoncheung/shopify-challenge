@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { GithubService } from '../services/github.service';
 import { Repo } from '../services/Repo';
 import { FormControl, Validators } from '@angular/forms';
+import { FavouritesService } from '../favourites.service';
 
 @Component({
   selector: 'app-search',
@@ -10,11 +11,10 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  
   public repos: Repo[] = [];
   public keyword = new FormControl('', [Validators.required]);
 
-  constructor(private githubService: GithubService) { }
+  constructor(private githubService: GithubService, private favouritesService: FavouritesService) { }
 
   ngOnInit() {
   }
@@ -53,6 +53,11 @@ export class SearchComponent implements OnInit {
         }
       });
     }
+  }
+
+  /** Given a repo, adds it to a favourites list */
+  public addFavourite(repo: Repo): void {
+    this.favouritesService.add(repo);
   }
 
 }

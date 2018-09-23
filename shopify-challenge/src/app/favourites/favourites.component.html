@@ -1,3 +1,22 @@
 <div id="favourites-container">
-
+    <table class="table table-borderless" id="results-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Latest tag</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let repo of favourites">
+            <td>
+                <a href="{{ repo.link }}">{{repo.name}}</a>
+            </td>
+            <td>{{repo.language}}</td>
+            <td>{{repo.tag}}</td>
+            <td>
+                <a href="#" class="add-btn" (click)="removeFavourite(repo)">Remove</a>
+            </td>
+        </tbody>
+    </table>
 </div>
