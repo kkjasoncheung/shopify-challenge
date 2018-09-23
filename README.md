@@ -1,7 +1,7 @@
 # ShopifyChallenge
 
 This project was created for the Shopify Winter 2018 Web Developer Intern position.
-With this client-side application, you are able to search GitHub's repositories (showing the top 10 results) and favourite them. Accidentally closed your tab? No worries! The favourited repos are stored on local storage so even if you've closed all your tabs, they will be there the next time you navigate to the app.
+With this client-side application, you are able to search GitHub's repositories (showing the top 10 results) and favourite them. Accidentally closed your tab? *No worries!* The favourited repos are stored on local storage so even if you've closed all your tabs, they will be there the next time you navigate to the app.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
