@@ -8,14 +8,18 @@ export class FavouritesService {
 
   public updatedFavourites: EventEmitter<any> = new EventEmitter();
   public favourites: Repo[] = [];
+  
 
-  constructor() { }
+  constructor() { 
+    this.getFavouritesLocalStorage();
+  }
 
   /** Given a repo, adds it to a list of favourites */
   public add(repo: Repo) {
     this.favourites.push(repo);
+    localStorage.setItem(String(repo.name), JSON.stringify(repo));
+
     this.updatedFavourites.emit('Favourites list updated.');
-    console.log('current favourites: ' + JSON.stringify(this.favourites));
   }
 
   /** Return a list of favourite repos */
@@ -28,6 +32,16 @@ export class FavouritesService {
     if (index > -1) {
       this.favourites.splice(index, 1); 
       this.updatedFavourites.emit('Favourites list updated.');
+    }
+
+    localStorage.removeItem(repo.name);
+  }
+
+  public getFavouritesLocalStorage(): void {
+    let keys = Object.keys(localStorage);
+    
+    for (let key of keys) {
+      this.favourites.push(JSON.parse(localStorage.getItem(key)));
     }
   }
 }
