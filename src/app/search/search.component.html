@@ -31,7 +31,7 @@
               <td>
                 <a href="#"
                 class="add-btn" 
-                [ngClass]="{ 'hide': favouritesService.getFavourites().indexOf(repo) > -1 }" 
+                [ngClass]="{ 'hide': repo.favourited }" 
                 (click)="addFavourite(repo)">Add</a>
               </td>
             </tr>

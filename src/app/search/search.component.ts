@@ -42,7 +42,14 @@ export class SearchComponent implements OnInit {
           language: result.items[i].language,
           tag: '-',
           tags_url: result.items[i].tags_url,
-          link: result.items[i].html_url
+          link: result.items[i].html_url,
+          favourited: false
+        }
+        // Check if repo is favourited
+        for (let favourite of this.favouritesService.getFavourites()) {
+          if (favourite.name === newRepo.name) {
+            newRepo.favourited = true;
+          }
         }
         this.repos.push(newRepo);
       }
@@ -64,6 +71,7 @@ export class SearchComponent implements OnInit {
 
   /** Given a repo, adds it to a favourites list */
   public addFavourite(repo: Repo): void {
+    repo.favourited = true;
     this.favouritesService.add(repo);
   }
 }

@@ -3,5 +3,6 @@ export interface Repo {
     language: string,
     tag: string,
     tags_url: string,
-    link: string
+    link: string,
+    favourited: boolean
 }
