@@ -8,7 +8,7 @@ With this app, you are able to search GitHub's repositories (showing the top 10 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## Run locally server/Development Server
+## Run locally/Development Server
 
 1. Clone the repository. `git clone https://github.com/kkjasoncheung/shopify-challenge.git`
 2. Change directory to the root of the application: `cd ./shopify-challenge`.
